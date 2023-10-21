@@ -1,0 +1,13 @@
+img {
+    width: 300px; 
+    height: auto;
+  }
+  h2{
+    color:red;
+  }
+  body.change-background {
+    background-color: yellow; /* Set the desired background color (e.g., red) */
+  }
+  body.change-backgroundtored {
+    background-color: red; /* Set the desired background color (e.g., red) */
+  }

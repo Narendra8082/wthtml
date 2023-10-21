@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <style>
+            fieldset {
+              background-color: #1bcb4ac0;
+            }
+            form {
+                background-color: #1bcba2;
+              }
+            legend {
+              background-color: gray;
+              color: white;
+              padding: 5px 10px;
+            }
+            input,textarea {
+              margin: 10px;
+            }
+            </style>
+            <script>
+                function hi(){
+                    documnet.write("your details are subitted");
+                }
+            </script>
+    </head>
+    <body>
+        <form>
+        <fieldset>
+         <legend> personal details</legend>
+        Name:  <input type="text" size="50" placeholder="enter your name">
+        regd NO: <input type="text"  placeholder="give your regd no">
+        email id: <input type="text" size="30" placeholder="enter your mail address"><br>
+        Gender: <input type="radio" name="gender" value="value" >male
+        <input type="radio" name="gender" value="value">female
+        </fieldset>
+        <img src="C:\Users\pinga\OneDrive\Desktop\logo.png" value="logo">
+        address <br><textarea  rows="10" cols="50" placeholder="enter your address"></textarea><br>
+        please provide us your passport photo<br><input type="file"   ><br>
+        enter your date of birth<br>
+        <input type="date"><br>
+        provide your hobbies<br><input type="textarea"><br>
+        are you a hosteler &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;or dayscholor<br> 
+        <input type="radio" name="gender" value="value">hosteler
+        <input type="radio" name="gender" value="value">dayscholor
+        <br> do need our transport facility<br>
+        <input type="radio" name="gender" value="value">yes
+        <input type="radio" name="gender" value="value">no
+        <br><input type="reset" value="Reset">
+        <button onclick="hi()"> submit</button>
+        </form>
+    </body>
+</html>

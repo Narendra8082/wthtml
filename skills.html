@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skills</title>
+    <style>
+        /* Center align the form and its fields */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .form-container {
+            width: 600px; /* Adjust container width as needed */
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 5px;
+            margin-bottom: 10px;
+        }
+        button[type="button"] {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        .skills-box {
+            margin-top: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .skills-list {
+            margin-top: 10px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .skills-list h3 {
+            margin: 0;
+        }
+        .submit-button {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Skills</h1>
+        <form id="skills-form">
+            <div class="skills-box">
+                <h3>Hard Skills</h3>
+                <div class="skills-list hard-skills">
+                    <!-- List of added hard skills will be displayed here -->
+                </div>
+                <button type="button" class="add-button">Add Skill</button>
+            </div>
+
+            <div class="skills-box">
+                <h3>Soft Skills</h3>
+                <div class="skills-list soft-skills">
+                    <!-- List of added soft skills will be displayed here -->
+                </div>
+                <button type="button" class="add-button">Add Skill</button>
+            </div>
+
+            <button type="submit" class="submit-button">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        const form = document.getElementById('skills-form');
+        const addButtons = document.querySelectorAll('.add-button');
+
+        addButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const skillsBox = button.closest('.skills-box');
+                const skillsList = skillsBox.querySelector('.skills-list');
+                const newSkillInput = document.createElement('input');
+                newSkillInput.type = 'text';
+                newSkillInput.placeholder = 'Enter skill...';
+                newSkillInput.name = skillsBox.classList.contains('hard-skills') ? 'hard-skill' : 'soft-skill';
+                skillsList.appendChild(newSkillInput);
+            });
+        });
+    </script>
+</body>
+</html>

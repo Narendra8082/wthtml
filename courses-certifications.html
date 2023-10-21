@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses and Certifications</title>
+    <style>
+        /* Center align the form and its fields */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .form-container {
+            width: 600px; /* Adjust container width as needed */
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 5px;
+            margin-bottom: 10px;
+        }
+        button[type="button"] {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        .courses-certifications-box {
+            margin-top: 10px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .courses-list, .certifications-list {
+            margin-top: 10px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Courses and Certifications</h1>
+        <form id="courses-form">
+            <div class="courses-certifications-box">
+                <h3>Courses Completed:</h3>
+                <div class="courses-list">
+                    <!-- List of added courses will be displayed here -->
+                </div>
+                <label for="course">Course Completed:</label>
+                <input type="text" id="course" name="course">
+                <button type="button" class="add-course-button">Add Course</button>
+            </div>
+
+            <div class="courses-certifications-box">
+                <h3>Certifications Completed:</h3>
+                <div class="certifications-list">
+                    <!-- List of added certifications will be displayed here -->
+                </div>
+                <label for="certification">Certification Completed:</label>
+                <input type="text" id="certification" name="certification">
+                <button type="button" class="add-certification-button">Add Certification</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        const form = document.getElementById('courses-form');
+        const addCourseButton = document.querySelector('.add-course-button');
+        const addCertificationButton = document.querySelector('.add-certification-button');
+
+        addCourseButton.addEventListener('click', function() {
+            const coursesList = this.parentElement.querySelector('.courses-list');
+            const courseInput = this.parentElement.querySelector('#course');
+            const courseName = courseInput.value.trim();
+
+            if (courseName) {
+                const courseItem = document.createElement('p');
+                courseItem.textContent = courseName;
+                coursesList.appendChild(courseItem);
+
+                courseInput.value = '';
+            }
+        });
+
+        addCertificationButton.addEventListener('click', function() {
+            const certificationsList = this.parentElement.querySelector('.certifications-list');
+            const certificationInput = this.parentElement.querySelector('#certification');
+            const certificationName = certificationInput.value.trim();
+
+            if (certificationName) {
+                const certificationItem = document.createElement('p');
+                certificationItem.textContent = certificationName;
+                certificationsList.appendChild(certificationItem);
+
+                certificationInput.value = '';
+            }
+        });
+    </script>
+</body>
+</html>

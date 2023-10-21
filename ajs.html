@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <title>Form Validation with AngularJS</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body>
+    <div ng-controller="myController">
+        <form name="myForm" ng-submit="submitForm()">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" ng-model="user.username" ng-required="true">
+            <span ng-show="myForm.username.$error.required">Username is required.</span>
+            
+            <br>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" ng-model="user.email" ng-required="true">
+            <span ng-show="myForm.email.$error.required">Email is required.</span>
+            <span ng-show="myForm.email.$error.email">Invalid email address.</span>
+
+            <br>
+            
+            <input type="submit" value="Submit" ng-disabled="myForm.$invalid">
+        </form>
+        <div ng-show="isFormSubmitted">
+            <p ng-if="myForm.$valid">Form submitted successfully with data: {{ user }}</p>
+            <p ng-if="myForm.$invalid">Form is invalid. Please correct the errors and try again.</p>
+        </div>
+    </div>
+
+    <script>
+        var app = angular.module('myApp', []);
+        app.controller('myController', function($scope) {
+            $scope.user = {
+                username: '',
+                email: ''
+            };
+
+            $scope.isFormSubmitted = false;
+
+            $scope.submitForm = function() {
+                $scope.isFormSubmitted = true;
+
+                if ($scope.myForm.$valid) {
+                    // Form is valid, you can process the data here
+                }
+            };
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Number Utilities</title>
+  <style>
+    button,input {
+        width: 200px;
+        height: 50px;
+        font-size: 18px;
+      }
+  </style>
+</head>
+<body>
+  <h2>Number Utilities</h2>
+  <label for="inputNumber">Enter a number:</label>
+  <input type="number" id="inputNumber">
+  <br><br>
+  <button onclick="calculateFactorial()">Factorial</button>
+  <button onclick="calculateFibonacci()">Fibonacci Series</button>
+  <button onclick="calculatePrimeNumbers()">Prime Numbers</button>
+  <button onclick="checkPalindrome()">Is Palindrome</button>
+  <br><br>
+  <label for="output">Result:</label>
+  <input type="text" id="output" readonly>
+  
+  <script>
+    function calculateFactorial() {
+      var num = document.getElementById("inputNumber").value;
+      var result = 1;
+      
+      for (var i = 2; i <= num; i++) {
+        result *= i;
+      }
+      
+      document.getElementById("output").value = result;
+    }
+    
+    function calculateFibonacci() {
+      var num = document.getElementById("inputNumber").value;
+      var fib = [0, 1];
+      
+      for (var i = 2; i <= num; i++) {
+        fib[i] = fib[i - 1] + fib[i - 2];
+      }
+      
+      document.getElementById("output").value = fib.slice(0, num + 1).join(", ");
+    }
+    
+    function isPrime(num) {
+      if (num <= 1) return false;
+      
+      for (var i = 2; i <= Math.sqrt(num); i++) {
+        if (num % i === 0) return false;
+      }
+      
+      return true;
+    }
+    
+    function calculatePrimeNumbers() {
+      var num = document.getElementById("inputNumber").value;
+      var primes = [];
+      
+      for (var i = 2; i <= num; i++) {
+        if (isPrime(i)) {
+          primes.push(i);
+        }
+      }
+      
+      document.getElementById("output").value = primes.join(", ");
+    }
+    
+    function checkPalindrome() {
+      var num = document.getElementById("inputNumber").value;
+      var numString = num.toString();
+      var reversed = numString.split("").reverse().join("");
+      
+      if (numString === reversed) {
+        document.getElementById("output").value = "Palindrome";
+      } else {
+        document.getElementById("output").value = "Not Palindrome";
+      }
+    }
+  </script>
+</body>
+</html>

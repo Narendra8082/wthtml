@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="styles.css">
+        <style>
+            h1 {
+                font-size: 50pt;
+                font-weight: bold;
+                font-family: 'Times New Roman';
+              }
+              img {
+                width: 1000px;height:300;
+                border: 10px solid rgb(21, 21, 12);
+              }
+              button{
+                width: 600px;height:100;
+              }
+        </style>
+        <script>
+            function changeBackgroundColor() {
+              document.body.classList.toggle("change-background");
+            }
+            function changeBackgroundColortored() {
+                document.body.classList.toggle("change-backgroundtored");
+              }
+          </script>
+    </head>
+    <body>
+        <h1>
+            this is h1
+        </h1>
+        <h2>
+            this is h22 heading  
+        </h2>
+        <center><img src="https://vignan.ac.in/images/LOGO_change.jpg"></center>
+            <br>
+            <button height="100" width="200" onclick="changeBackgroundColor()"><h1 style="font-size: 36px;">Change Background to yellow</h1></button>
+            <br><br><button1><button height="100" width="200" onclick="changeBackgroundColortored()"><h1 style="font-size: 36px;">Change Background to red</h1></button></button1>
+    </body>
+</html>

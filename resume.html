@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Resume</title>
+    <style>
+        /* Center align the form and its fields */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .form-container {
+            width: 400px; /* Adjust container width as needed */
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="file"] {
+            width: 100%;
+            padding: 5px;
+            margin-bottom: 15px;
+        }
+        button[type="submit"] {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Upload Resume</h1>
+        <form id="resume-form" enctype="multipart/form-data">
+            <label for="resume">Select Resume:</label>
+            <input type="file" id="resume" name="resume" accept=".pdf, .doc, .docx" required>
+
+            <button type="submit">Upload Resume</button>
+        </form>
+
+        <div id="output">
+            <!-- Output of file upload will be displayed here -->
+        </div>
+    </div>
+
+    <script>
+        const form = document.getElementById('resume-form');
+        const output = document.getElementById('output');
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const formData = new FormData(form);
+            const file = formData.get('resume');
+
+            if (file) {
+                const fileName = file.name;
+                const fileType = file.type;
+                output.innerHTML = `<p>Uploaded File: <strong>${fileName}</strong> (${fileType})</p>`;
+            } else {
+                output.innerHTML = '<p>No file selected.</p>';
+            }
+        });
+    </script>
+</body>
+</html>

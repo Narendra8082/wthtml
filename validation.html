@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Email and Input Validation</title>
+  <style>
+    button {
+      height: 25px;
+      width: 100px;
+    }
+  </style>
+  <script>
+    function validateInput() {
+      var inputText = document.getElementById("narendra").value.trim();
+      var emailPattern = /^((?![@.]{2})(?=.*@)(?=.*\.)(?=.*gmail\.com$).*)$/;
+
+      if (emailPattern.test(inputText)) {
+        alert("Correct email address");
+        document.getElementById("validationResult").textContent = "email validation completed";
+      } else {
+        alert("Wrong email address");
+        document.getElementById("validationResult").textContent = "Please enter valid email.";
+      }
+    }
+  </script>
+</head>
+<body>
+  Enter your Gmail address: <input type="text" id="narendra"><br><br>
+  <button onclick="validateInput()">check</button>
+  <p id="validationResult"></p><br>
+  please enter your password<input type="password" id="password">
+  <button onclick="checkpassword()">enter</button>
+</body>
+</html>
